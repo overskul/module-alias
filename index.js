@@ -110,6 +110,14 @@ function addAlias (alias, target) {
   moduleAliasNames.sort()
 }
 
+function resolve(path) {
+  for (const alias in moduleAliases) {
+    if (path.indexOf(alias) === -1) continue
+    return nodePath.join(moduleAliases[alias], path.slice(alias.length))
+  }
+  return path
+}
+
 /**
  * Reset any changes maded (resets all registered aliases
  * and custom module directories)
@@ -222,6 +230,7 @@ module.exports.addAlias = addAlias
 module.exports.addAliases = addAliases
 module.exports.isPathMatchesAlias = isPathMatchesAlias
 module.exports.reset = reset
+module.exports.resolve = resolve
 
 module.exports.modulePaths = modulePaths
 module.exports.moduleAliases = moduleAliases
