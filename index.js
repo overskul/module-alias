@@ -222,3 +222,7 @@ module.exports.addAlias = addAlias
 module.exports.addAliases = addAliases
 module.exports.isPathMatchesAlias = isPathMatchesAlias
 module.exports.reset = reset
+
+module.exports.modulePaths = modulePaths
+module.exports.moduleAliases = moduleAliases
+module.exports.moduleAliasNames = moduleAliasNames
